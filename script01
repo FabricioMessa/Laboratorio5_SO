@@ -1,0 +1,43 @@
+#!/bin/bash
+
+while true
+do
+    echo "--- Menú de opciones ---"
+    echo "[C]opiar un archivo"
+    echo "[E]liminar un archivo"
+    echo "[S]alir del script"
+    echo "------------------------"
+
+    read -p "Elige una opción: " opcion
+
+    case $opcion in
+        [cC])
+            read -p "Ingresa el nombre del archivo a copiar: " origen
+            read -p "Ingresa el nombre de la copia: " destino
+            if [ -f "$origen" ]; then
+                cp "$origen" "$destino"
+                echo "Archivo '$origen' copiado a '$destino' exitosamente."
+            else
+                echo "Error: El archivo '$origen' no existe."
+            fi
+            ;;
+        [eE])
+            read -p "Ingresa el nombre del archivo a eliminar: " a_eliminar
+            if [ -f "$a_eliminar" ]; then
+                rm "$a_eliminar"
+                echo "Archivo '$a_eliminar' eliminado exitosamente."
+            else
+                echo "Error: El archivo '$a_eliminar' no existe."
+            fi
+            ;;
+        [sS])
+            echo "Saliendo del script. ¡Adiós!"
+            exit 0
+            ;;
+        *)
+            echo "Opción no válida. Por favor, elige una de las opciones del menú."
+            ;;
+    esac
+
+    echo ""
+done
