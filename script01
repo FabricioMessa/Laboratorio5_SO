@@ -2,11 +2,9 @@
 
 while true
 do
-    echo "--- Menú de opciones ---"
     echo "[C]opiar un archivo"
     echo "[E]liminar un archivo"
     echo "[S]alir del script"
-    echo "------------------------"
 
     read -p "Elige una opción: " opcion
 
